@@ -1,0 +1,147 @@
+# Official RoboDojo release; local asset paths and online text encoding.
+model:
+  _target_: prismwam.models.wan22.rgb_memory.create_prismwam_rgb_depth_action
+  model_id: Wan-AI/Wan2.2-TI2V-5B
+  tokenizer_model_id: Wan-AI/Wan2.2-TI2V-5B
+  tokenizer_max_len: 128
+  load_text_encoder: true
+  redirect_common_files: false
+  architecture_name: PrismWAM
+  rgb_input_size:
+  - 384
+  - 320
+  rgb_target_mode: f8
+  rgb_depth_attention_mode: rgb_to_depth_to_action
+  rgb_fast: true
+  rgb_history_num_frames: 3
+  rgb_history_frame_stride: 4
+  share_rgb_depth_blocks: true
+  video_use_text_embedding: true
+  proprio_dim: 14
+  mot_checkpoint_mixed_attn: true
+  skip_depth_dit_load_from_pretrain: true
+  skip_rgb_dit_load_from_pretrain: true
+  skip_action_dit_load_from_pretrain: true
+  checkpoint_init_only: true
+  depth_vae_require_latent_stats: true
+  depth_dit_checkpoint_path: null
+  depth_vae_checkpoint_path: ${oc.env:PRISMWAM_DEPTH_VAE}
+  rgb_vae_checkpoint_path: ${oc.env:PRISMWAM_ASSETS_ROOT}/robodojo/rgb_vae.safetensors
+  action_dit_pretrained_path: null
+  depth_dit_config:
+    patch_size:
+    - 1
+    - 2
+    - 2
+    in_dim: 48
+    hidden_dim: 3072
+    ffn_dim: 14336
+    freq_dim: 256
+    text_dim: 4096
+    out_dim: 48
+    num_heads: 24
+    attn_head_dim: 128
+    num_layers: 30
+    eps: 1.0e-06
+    seperated_timestep: true
+    require_vae_embedding: false
+    fuse_vae_embedding_in_latents: true
+    use_gradient_checkpointing: true
+    video_attention_mask_mode: first_frame_causal
+  rgb_dit_config:
+    patch_size:
+    - 1
+    - 2
+    - 2
+    in_dim: 48
+    hidden_dim: 3072
+    ffn_dim: 14336
+    freq_dim: 256
+    text_dim: 4096
+    out_dim: 48
+    num_heads: 24
+    attn_head_dim: 128
+    num_layers: 30
+    eps: 1.0e-06
+    seperated_timestep: true
+    require_vae_embedding: false
+    fuse_vae_embedding_in_latents: true
+    use_gradient_checkpointing: true
+    video_attention_mask_mode: first_frame_causal
+  action_dit_config:
+    action_dim: 14
+    hidden_dim: 1024
+    ffn_dim: 4096
+    num_heads: 24
+    attn_head_dim: 128
+    num_layers: 30
+    text_dim: 4096
+    freq_dim: 256
+    eps: 1.0e-06
+    use_gradient_checkpointing: true
+  rgb_scheduler:
+    train_shift: 5.0
+    infer_shift: 5.0
+    num_train_timesteps: 1000
+  depth_scheduler:
+    train_shift: 5.0
+    infer_shift: 5.0
+    num_train_timesteps: 1000
+  action_scheduler:
+    train_shift: 5.0
+    infer_shift: 5.0
+    num_train_timesteps: 1000
+  loss:
+    lambda_rgb: 1.0
+    lambda_depth: 1.0
+    lambda_action: 1.0
+  depth_parent_expected_step: 15000
+  action_init_source: wan
+  lr_schedule_steps: 40000
+  rgb_memory:
+    anchor_frames: 1
+    recent_frames: 3
+    raw_frame_stride: 4
+    vae_temporal_stride: 4
+    sparse_context_mode: anchor_recent_current
+    sparse_recent_action_offset: 32
+    sparse_frame_encoding: independent
+    rgb_proprio_context: false
+    conditioning_latent_noise_prob: 0.2
+    conditioning_latent_noise_stream: rgb
+    rgb_conditioning_latent_noise_prob: 0.2
+    depth_conditioning_latent_noise_prob: 0.0
+data:
+  train:
+    action_stats_cache_path: action_stats.pt
+    video_size:
+    - 384
+    - 320
+    num_video_frames: 9
+    frame_stride: 4
+    rgb_history_num_frames: 3
+    rgb_history_frame_stride: 4
+    cameras:
+    - cam_head
+    - cam_left_wrist
+    - cam_right_wrist
+    layout: robotwin
+    depth_min: 0.0
+    depth_max: 1500.0
+    action_horizon: 32
+    action_dim: 14
+    action_start_offset: 1
+    proprio_start_offset: 0
+    context_len: 128
+    prompt_template: 'A video recorded from a robot''s point of view executing the
+      following instruction: {task}'
+deployment:
+  action_horizon: 32
+  replan_steps: 16
+  num_inference_steps: 10
+  inference_shifts:
+    depth: 5.0
+    action: 5.0
+  benchmark: robodojo
+  portable_bundle: true
+  statistics_path: action_stats.pt

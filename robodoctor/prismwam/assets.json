@@ -1,0 +1,88 @@
+{
+  "checkpoint": {
+    "repo_id": "THUSI-Lab/PrismWAM",
+    "revision": "f4951104284f092d23af01f544a4e1ac716b2e84",
+    "files": [
+      {
+        "path": "robodojo/policy.pt",
+        "size": 12222106646,
+        "sha256": "ddbbc70515a03d876740110e3bb6112a50bbd8724dceeabc085dd28ab04cdbe0"
+      }
+    ]
+  },
+  "depth_vae": {
+    "repo_id": "THUSI-Lab/PrismWAM",
+    "revision": "f4951104284f092d23af01f544a4e1ac716b2e84",
+    "files": [
+      {
+        "path": "robodojo/depth_vae.pt",
+        "size": 1409265419,
+        "sha256": "c869ccb52c79b398e0f173f3054cfa229f620ef108ceeec82ad0670ca8bb1957"
+      }
+    ]
+  },
+  "rgb_vae": {
+    "repo_id": "THUSI-Lab/PrismWAM",
+    "revision": "f4951104284f092d23af01f544a4e1ac716b2e84",
+    "files": [
+      {
+        "path": "robodojo/rgb_vae.safetensors",
+        "size": 1409401152,
+        "sha256": "0e913a2ca571c75fcb63385a8edadcca73454af5842596cb1ad11e4142590996"
+      }
+    ]
+  },
+  "inference_config": {
+    "repo_id": "THUSI-Lab/PrismWAM",
+    "revision": "f4951104284f092d23af01f544a4e1ac716b2e84",
+    "files": [
+      {
+        "path": "robodojo/config.yaml",
+        "size": 3625,
+        "sha256": "632b9bb9998cf1c9f1c07087c3a8ce02b8ec495f973f73c91f25f46bc81b3f86"
+      },
+      {
+        "path": "robodojo/action_stats.pt",
+        "size": 2189,
+        "sha256": "0d38ecefd36a2bda6f191fb767b316b94d333bbbf7c167400f78b3ed34dc78c0"
+      }
+    ]
+  },
+  "wan22": {
+    "repo_id": "Wan-AI/Wan2.2-TI2V-5B",
+    "revision": "921dbaf3f1674a56f47e83fb80a34bac8a8f203e",
+    "files": [
+      {
+        "path": "models_t5_umt5-xxl-enc-bf16.pth",
+        "size": 11361920418,
+        "sha256": "7cace0da2b446bbbbc57d031ab6cf163a3d59b366da94e5afe36745b746fd81d"
+      }
+    ]
+  },
+  "tokenizer": {
+    "repo_id": "Wan-AI/Wan2.2-TI2V-5B",
+    "revision": "921dbaf3f1674a56f47e83fb80a34bac8a8f203e",
+    "files": [
+      {
+        "path": "google/umt5-xxl/special_tokens_map.json",
+        "size": 6623,
+        "sha256": "7b8a9f5040adb67b5805abdfd42c1f8d0f3d0e711f10726580eb3789cd0ad61d"
+      },
+      {
+        "path": "google/umt5-xxl/spiece.model",
+        "size": 4548313,
+        "sha256": "e3909a67b780650b35cf529ac782ad2b6b26e6d1f849d3fbb6a872905f452458"
+      },
+      {
+        "path": "google/umt5-xxl/tokenizer.json",
+        "size": 16837417,
+        "sha256": "6e197b4d3dbd71da14b4eb255f4fa91c9c1f2068b20a2de2472967ca3d22602b"
+      },
+      {
+        "path": "google/umt5-xxl/tokenizer_config.json",
+        "size": 61728,
+        "sha256": "ed9a3a8b0faa71a70a32847e0435fe036e6e112d4df4edb7bb48a921e344dc05"
+      }
+    ]
+  }
+}

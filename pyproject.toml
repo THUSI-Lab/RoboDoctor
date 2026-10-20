@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "RoboDoctor"
+version = "0.1.0"
+readme = "README.md"
+description = "Grounded direct, hybrid and iterative RSI control for RoboDojo"
+requires-python = ">=3.10"
+dependencies = ["numpy", "scipy", "Pillow", "imageio", "imageio-ffmpeg", "omegaconf", "msgpack", "tomli; python_version < '3.11'"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[tool.setuptools]
+license-files = ["THIRD_PARTY_NOTICES.md"]
+
+[tool.setuptools.packages.find]
+include = ["robodoctor*", "hybrid_rollout*"]
+exclude = ["runtime*", "results*", "third_party*", "tests*"]
+
+[tool.setuptools.package-data]
+robodoctor = ["prompts/*.md", "prompts/context/*.md", "hybrid_prompts/*.md", "hybrid_prompts/context/*.md", "rsi_prompts/*.md", "rsi_prompts/context/*.md", "prismwam/*.yaml", "prismwam/*.pt", "prismwam/*.json"]
+hybrid_rollout = ["robodojo/robodojo_server/*.sh"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

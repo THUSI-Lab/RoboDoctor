@@ -1,0 +1,34 @@
+__pycache__/
+.pytest_cache/
+*.egg-info/
+results*/
+runtime/
+runtime.local.sh
+config.toml
+
+# Private configuration and credentials.
+.env
+.env.*
+!.env.example
+*.local.toml
+gemini.toml
+*.key
+*.pem
+*.p12
+*.pfx
+auth.json
+credentials.json
+secrets/
+private/
+private_runtime/
+.codex/
+.agents/
+.aws/
+# Generated environments and artifacts.
+.venv/
+venv/
+build/
+dist/
+checkpoints/
+*.log
+*.pyc

@@ -1,0 +1,13 @@
+# Supply credentials through OPENAI_API_KEY or --key-file; never commit keys.
+model = "gpt-6-astra"
+model_reasoning_effort = "medium"
+model_provider = "openai"
+action_chunk_length = 32
+model_reasoning_summary = "auto"
+approvals_reviewer = "auto_review"
+
+[model_providers.openai]
+name = "OpenAI"
+base_url = "https://api.openai.com/v1"
+wire_api = "responses"
+env_key = "OPENAI_API_KEY"
