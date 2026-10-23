@@ -2,17 +2,15 @@
 
 Heyang Yu<sup>1,\*</sup>, Haomin Li<sup>1,\*</sup>, Sihang Li<sup>2</sup>, Jixin Yan<sup>3</sup>, Shiyun Peng<sup>1</sup>, Wanqi Zhong<sup>1</sup>, Tianyu Xin<sup>1</sup>, Yuan Yao<sup>1</sup>, Xiaoyu Tian<sup>1,†</sup>, Yiming Li<sup>1,†</sup>
 
-<sup>1</sup> Tsinghua University<br>
-<sup>2</sup> New York University<br>
-<sup>3</sup> Northwestern University
+<sup>1</sup>Tsinghua University  <sup>2</sup>New York University  <sup>3</sup>Northwestern University
 
-<sup>*</sup> Equal contribution<br>
-<sup>†</sup> Equal correspondence
+<sup>*</sup>Equal contribution  <sup>†</sup>Equal correspondence
 
 [Project website](https://robodoctor-rsi.github.io/) ·
 [Paper](https://robodoctor-rsi.github.io/tech_report.pdf) ·
 [PrismWAM RoboDojo models](https://huggingface.co/THUSI-Lab/PrismWAM/tree/main/robodojo)
 
+[![RoboDoctor overview: harness, intervention, and operation RSI with fixed models and adaptive execution](assets/overview.png)](assets/overview.pdf)
 
 RoboDoctor improves robot control without updating the learned policy weights.
 Within an episode it observes RGB-D and robot state, diagnoses a proposed policy
@@ -20,6 +18,18 @@ chunk, and either releases a prefix or applies a bounded correction. Across
 episodes it accumulates verified intervention and operation experience, while a
 harness selects hybrid or direct control. See the project website for the method
 and research results; this README describes the implementation and setup.
+
+
+
+## Results
+
+![RoboDojo-Sim agent scores comparing official reference agents with RoboDoctor Warmup and Refinement](assets/scores.png)
+
+RoboDoctor improves from **49.74** (Warmup) to **57.10** (Refinement), a gain of
+**7.37 points**. The local results cover **54 tasks**, with **162/162** valid
+Warmup episodes and **301/324** valid Refinement episodes. Overall scores equally
+weight the five benchmark dimensions; missing or invalid episodes are excluded.
+
 
 ## Supported workflows
 

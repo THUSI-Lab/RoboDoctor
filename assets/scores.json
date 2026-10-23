@@ -1,0 +1,102 @@
+{
+  "source": "https://robodoctor-rsi.github.io/#results",
+  "retrievedAt": "2026-10-23",
+  "dataSources": [
+    "https://robodoctor-rsi.github.io/data/leaderboard.js",
+    "https://robodoctor-rsi.github.io/data/task-results.js"
+  ],
+  "officialUpdatedAt": "2026-10-20T00:00:00.000Z",
+  "localUpdatedAt": "2026-10-21",
+  "rules": {
+    "stages": {
+      "warmup": [
+        0,
+        1,
+        2
+      ],
+      "rsi": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    "selection": "Highest valid native score per task and iteration across extracted runs, source copies, archived retries and repository results. Ties prefer newer dated/master batches, then completionfix, then source path. Invalid/incomplete attempts are excluded. Explicit taskRunOverrides replace only their specified iterations (all nine when omitted), regardless of older scores.",
+    "validity": "complete=true, valid_for_success_rate=true, finite numeric native_score in [0,1]. Real zeros count; missing/invalid outcomes stay null.",
+    "aggregation": "Task scores and success rates average available selected native episode scores and explicit boolean native_success, multiplied by 100. Overall score and success rate each use the equal-weight mean of the five RoboDojo dimension metrics defined in data/score-dimensions.json. Each dimension averages its task metrics; Generalization equally averages the standard and randomized split means. Missing episodes are excluded, never zero-filled; calculations use unrounded values. ",
+    "coverage": "Warmup expects 3 episodes per task; RSI expects 6. Repository-only tasks retain their available iter3–5; absent iter6–8 are missing, never repeated or zero-filled."
+  },
+  "localCoverage": {
+    "warmup": {
+      "score": 49.73611111111111,
+      "successRate": 40.83333333333333,
+      "scoredTasks": 54,
+      "plannedTasks": 54,
+      "scoreEpisodes": 162,
+      "successEpisodes": 162,
+      "plannedEpisodes": 162,
+      "completeTasks": 54
+    },
+    "rsi": {
+      "score": 57.104166666666664,
+      "successRate": 49.44444444444444,
+      "scoredTasks": 54,
+      "plannedTasks": 54,
+      "scoreEpisodes": 301,
+      "successEpisodes": 301,
+      "plannedEpisodes": 324,
+      "completeTasks": 46
+    }
+  },
+  "entries": [
+    {
+      "name": "RoboDoctor v1.0",
+      "stage": "Refinement",
+      "score": 57.104166666666664,
+      "group": "rsi"
+    },
+    {
+      "name": "HexaShell-Preview",
+      "score": 53.18,
+      "group": "official"
+    },
+    {
+      "name": "RoboDoctor v1.0",
+      "stage": "Warmup",
+      "score": 49.73611111111111,
+      "group": "warmup"
+    },
+    {
+      "name": "WorldScape-R²SI",
+      "score": 46.58,
+      "group": "official"
+    },
+    {
+      "name": "EmbodiedEvo",
+      "score": 45.08,
+      "group": "official"
+    },
+    {
+      "name": "PhysicalRSI",
+      "score": 36.27,
+      "group": "official"
+    },
+    {
+      "name": "GPT-6-Astra",
+      "score": 28.97,
+      "group": "official"
+    },
+    {
+      "name": "DeepSeek-Flash",
+      "score": 2.99,
+      "group": "official"
+    },
+    {
+      "name": "GPT-5.5",
+      "score": 1.13,
+      "group": "official"
+    }
+  ]
+}
