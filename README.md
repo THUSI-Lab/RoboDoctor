@@ -1,9 +1,18 @@
-# RoboDoctor
+# RoboDoctor: Training-Free Recursive Self-Improvement for Robot Policies
 
-**Training-Free Recursive Self-Improvement for Robot Policies**
+Heyang Yu<sup>1,\*</sup>, Haomin Li<sup>1,\*</sup>, Sihang Li<sup>2</sup>, Jixin Yan<sup>3</sup>, Shiyun Peng<sup>1</sup>, Wanqi Zhong<sup>1</sup>, Tianyu Xin<sup>1</sup>, Yuan Yao<sup>1</sup>, Xiaoyu Tian<sup>1,†</sup>, Yiming Li<sup>1,†</sup>
+
+<sup>1</sup> Tsinghua University<br>
+<sup>2</sup> New York University<br>
+<sup>3</sup> Northwestern University
+
+<sup>*</sup> Equal contribution<br>
+<sup>†</sup> Equal correspondence
 
 [Project website](https://robodoctor-rsi.github.io/) ·
+[Paper](https://robodoctor-rsi.github.io/tech_report.pdf) ·
 [PrismWAM RoboDojo models](https://huggingface.co/THUSI-Lab/PrismWAM/tree/main/robodojo)
+
 
 RoboDoctor improves robot control without updating the learned policy weights.
 Within an episode it observes RGB-D and robot state, diagnoses a proposed policy
@@ -427,3 +436,15 @@ Public PrismWAM source revisions and hashes are recorded under `third_party/pris
 Model weights, simulators and assets retain their upstream licenses and must be
 installed/downloaded separately. Research references and citation information
 are maintained on the [official project website](https://robodoctor-rsi.github.io/).
+
+## Citation
+```bibtex
+@misc{yu2026robodoctor,
+  title        = {RoboDoctor: Training-Free Recursive Self-Improvement for Robot Policies.},
+  author       = {Heyang Yu, Haomin Li, Sihang Li, Jixin Yan, Shiyun Peng, Wanqi Zhong, Tianyu Xin, Yuan Yao, Xiaoyu Tian, Yiming Li},
+  howpublished = {https://robodoctor-rsi.github.io/},
+  url          = {https://robodoctor-rsi.github.io/},
+  note         = {Project page},
+  year         = {2026}
+}
+```
